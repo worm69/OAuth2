@@ -136,6 +136,9 @@ public final class OAuthUtils {
                 e.printStackTrace();
             }
             String string = sb.toString();
+            string = string.replaceAll("[^\\u0009\\u000a\\u000d\\u0020-\\uD7FF\\uE000-\\uFFFD]", "");
+            string = string.substring(0,string.indexOf("}"));
+            string+="}";
             return string.trim();
         }
 
